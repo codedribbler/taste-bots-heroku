@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head >
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Review Analysis</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="/static/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Custom styles for this template-->
+<!-- Custom styles for this template-->
+<link href="/static/sb-admin-2.min.css" rel="stylesheet">
+  <link
+        href="http://cdn.pydata.org/bokeh/release/bokeh-2.0.0.min.css"
+        rel="stylesheet" type="text/css">
+                            <link
+        href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.0.0.min.css"
+        rel="stylesheet" type="text/css">
+
+      <script src="http://cdn.pydata.org/bokeh/release/bokeh-2.0.0.min.js"/>
+      <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.0.0.min.js"/>
+
+      <script src="http://d3js.org/d3.v3.min.js"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.4/d3.layout.cloud.js"/>
+
+
+
+<!-- Custom styles for this template-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<style>
+body {
+  background-image: url("/static/B1234.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+input[type=text] {
+width: 150px;
+height:25px;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 4px;
+font-size: 16px;
+background-color: white;
+padding: 12px 20px 12px 40px;
+transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+width: 100%;
+background-color: white;
+border-color: #333;
+border: solid 2px #fff;
+}
+
+.pull-right
+{
+float: right;
+}
+
+.collapsible {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 50%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: green;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+}
+
+
+.body_card {
+  font-family: Arial;
+  margin-right: 25px;
+  margin-left: 25px;
+  width: 80%;
+  padding: 20px;
+}
+
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top:10px;
+}
+
+.middle {
+  margin-top:10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: {{percentages[4]}}%; height: 18px; background-color: #4CAF50;}
+.bar-4 {width: {{percentages[3]}}%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: {{percentages[2]}}%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: {{percentages[1]}}%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: {{percentages[0]}}%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+
+</style>
+
+
+</head>
+<script>
+</script>
+<body id="page-top" color='black' >
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+<!-- Main Content -->
+<div id="content">
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-black w3-border-right w3-animate-left" style="display:none" id="mySidebar">
+<button onclick="w3_close()" class="w3-bar-item w3-large w3-hover-green w3-grey">Close &times;</button>
+<a href="/" class="w3-bar-item w3-button w3-hover-green">Home</a>
+<a href="#" class="w3-bar-item w3-button w3-hover-green">About Us</a>
+<div class="w3-dropdown-hover">
+<button class="w3-button w3-hover-green w3-black">Recommended Restaurants
+<i class="fa fa-caret-down "></i>
+</button>
+<div class="w3-dropdown-content w3-bar-block">
+<a href="/Similar/{{restaurant_name}}" class="w3-bar-item w3-button w3-hover-green">Similar Restaurants</a>
+<a href="/Biryani" class="w3-bar-item w3-button w3-hover-green">Known For Biryani</a>
+<a href="/Ambience" class="w3-bar-item w3-button w3-hover-green">Known For Ambience</a>
+<a href="/Service" class="w3-bar-item w3-button w3-hover-green">Known For Service</a>
+</div>
+</div>
+<a href="/coming_soon" class="w3-bar-item w3-button w3-hover-green">For Owners</a>
+</div>
+
+<!-- Page Content -->
+<div class="w3-black">
+<button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰ Menu</button>
+
+<li id="search-bar" class="pull-right">
+<form action = /search method = post>
+<input type="text" name="search" placeholder="Search..">
+</form>
+</li>
+</div>
+
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4" style='background-image: url("/static/B3.jpg")'>
+<h1 class="display-5" ><font size="600" color="white"><b>{{restaurant_name}}</b></font></h1>
+
+</header>
+<div class="card shadow mb-1">
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">User Rating</h6>
+				</div>
+<div class = "body_card" >
+<span class=" {{Star_check[0]}}"></span>
+<span class="{{Star_check[1]}}" ></span>
+<span class="{{Star_check[2]}}" ></span>
+<span class="{{Star_check[3]}}" ></span>
+<span class="{{Star_check[4]}}" ></span>
+<p>{{Avg_rating}} average based on {{total_review}} reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{rati[4]}}</div>
+  </div>
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{rati[3]}}</div>
+  </div>
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{rati[2]}}</div>
+  </div>
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{rati[1]}}</div>
+  </div>
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{rati[0]}}</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col">
+<div class="card shadow mb-1">
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">Most Talked Words</h6>
+</div>
+<div class="card-body" padding-top= 10px;>
+<img src="data:image/png;base64,{{ wc_image }}">
+</div>
+</div>
+</div>
+<div class="col">
+<div class="card shadow mb-1" >
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">Feature Score</h6>
+				</div>
+<div class="card-body">
+
+{{ script_top_five|safe }}
+{{ div_top_five|safe }}
+
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div class = "row">
+<!--div class="col"-->
+
+<div class="card shadow mb-1">
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">The Positives</h6>
+				</div>
+<div class="card-body">
+{{ script_high_rate|safe }}
+{{ div_high_rate|safe }}
+</div>
+</div>
+
+<div class="col">
+<div class="card shadow mb-1">
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">The Negatives</h6>
+				</div>
+{{ script_low_rate|safe }}
+{{ div_low_rate|safe }}
+</div>
+</div>
+</div>
+
+
+<!-- Card Body -->
+<div class="row">
+<div class="card shadow mb-1">
+
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">Sentiment Distribution of Features</h6>
+				</div>
+<div class="card-body">
+{{ script_draw|safe }}
+{{ div_draw|safe }}
+
+</div>
+</div>
+
+<!-- Card Body -->
+<div class="col">
+<div class="card shadow mb-1">
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">Positive Reviews</h6>
+				</div>
+<div class="card-body">
+<li id="collapsible" class="pull-right">
+<button class="collapsible">Review 1</button>
+<div class="content">
+  <p>{{Pos_Rev[0]}}</p>
+</div>
+</li>
+<li id="collapsible" class="pull-right">
+<button class="collapsible">Review 2</button>
+<div class="content">
+  <p>{{Pos_Rev[1]}}</p>
+</div>
+</li>
+<li id="collapsible" class="pull-right">
+<button class="collapsible">Review 3</button>
+<div class="content">
+  <p>{{Pos_Rev[2]}}</p>
+</div>
+</li>
+
+</div>
+</div>
+
+<div class="card shadow mb-1">
+<div class="card-header py-3 ">
+                  <h6 class="m-0 font-weight-bold text-primary">Negative Reviews</h6>
+				</div>
+<div class="card-body">
+<li id="collapsible" class="pull-right">
+<button class="collapsible">Review 1</button>
+<div class="content">
+  <p>{{Neg_Rev[0]}}</p>
+</div>
+</li>
+<li id="collapsible" class="pull-right">
+<button class="collapsible">Review 2</button>
+<div class="content">
+  <p>{{Neg_Rev[1]}}</p>
+</div>
+</li>
+<li id="collapsible" class="pull-right">
+<button class="collapsible">Review 3</button>
+<div class="content">
+  <p>{{Neg_Rev[2]}}</p>
+</div>
+</li>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+<div class="container my-auto">
+<div class="copyright text-center my-auto">
+<span>Copyright &copy; Your Website 2019</span>
+</div>
+</div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+<i class="fas fa-angle-up"/>
+</a>
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+<!-- Page level plugins -->
+<script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
+
+<script>
+function w3_open() {
+document.getElementById("mySidebar").style.width = "20%";
+document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+</body>
+
+</html>

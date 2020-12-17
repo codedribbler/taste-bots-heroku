@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Similar Restaurants</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/heroic-features.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+<style>
+body {
+  background-image: url("/static/B1234.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: white;
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+  background-color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a.active {
+  background-color: green;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: grey;}
+input[type=text] {
+  width: 150px;
+  height:25px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+  	background-color: white;
+	border-color: #333;
+	border: solid 2px #fff;
+}
+
+.pull-right 
+{
+    float: right;
+}
+</style>
+
+</head>
+
+<body >
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-black w3-border-right w3-animate-left" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large w3-hover-green w3-grey">Close &times;</button>
+  <a href="/" class="w3-bar-item w3-button w3-hover-green">Home</a> 
+  <a href="#" class="w3-bar-item w3-button w3-hover-green">About Us</a> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-button w3-hover-green w3-black">Recommended Restaurants
+      <i class="fa fa-caret-down "></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/Biryani" class="w3-bar-item w3-button w3-hover-green">Known For Biryani</a>
+      <a href="/Ambience" class="w3-bar-item w3-button w3-hover-green">Known For Ambience</a>
+      <a href="/Service" class="w3-bar-item w3-button w3-hover-green">Known For Service</a>
+    </div>
+  </div> 
+  <a href="/coming_soon" class="w3-bar-item w3-button w3-hover-green">For Owners</a> 
+</div>
+
+<!-- Page Content -->
+<div class="w3-black">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰ Menu</button>
+
+<li id="search-bar" class="pull-right">
+<form action = /search method = post>
+  <input type="text" name="search" placeholder="Search..">
+</form>
+</li>
+</div>
+
+
+  <!-- Page Content -->
+  <div class="container" >
+  
+      <!-- Jumbotron Header -->
+    <header class="jumbotron my-4" style='background-image: url("/static/S.jpg")'>
+      <h1 class="display-5" ><font size="600" color="white"><b>Restaurants Similar to {{restaurant_name}}</b></font></h1>
+      
+    </header>
+
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_1.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[0]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[0]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_2.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[1]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[1]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_3.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[2]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[2]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_4.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[3]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[3]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_5.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[4]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[4]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_6.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[5]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[5]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_7.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[6]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[6]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/static/SB_8.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{Same[7]}}</h4>
+            <p class="card-text">Top restaurants which you are interested in..</p>
+          </div>
+          <div class="card-footer">
+            <a href="/restaurant_details/{{Same[7]}}" class="btn btn-primary">Review Analysis</a>
+          </div>
+        </div>
+      </div>
+	  
+		<div class="center">
+	  	<div class="pagination">
+		  <a href="#">&laquo;</a>
+		  <a class="active" href="/Similar/{{restaurant_name}}">1</a>
+		  <a href="/Similar2/{{restaurant_name}}">2</a>
+		  <a href="#">3</a>
+		  <a href="#">4</a>
+		  <a href="#">5</a>
+		  <a href="#">6</a>
+		  <a href="#">&raquo;</a>
+		</div>
+		</div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white"></p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.width = "20%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+  
+
+</body>
+
+</html>

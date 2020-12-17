@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>404</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:700,900" rel="stylesheet">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="static/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		  
+		<![endif]-->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <title></title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/heroic-features.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+<style>
+body {
+  background-image: url("/static/B1234.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+input[type=text] {
+  width: 150px;
+  height:25px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+  	background-color: white;
+	border-color: #333;
+	border: solid 2px #fff;
+}
+
+.pull-right 
+{
+    float: right;
+}
+
+.pagination a {
+  color: white;
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+  background-color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a.active {
+  background-color: green;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: grey;}
+</style>
+
+</head>
+
+
+
+<body>
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-black w3-border-right w3-animate-left" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large w3-hover-green w3-grey">Close &times;</button>
+  <a href="/" class="w3-bar-item w3-button w3-hover-green">Home</a> 
+  <a href="#" class="w3-bar-item w3-button w3-hover-green">About Us</a> 
+  <div class="w3-dropdown-hover">
+    <button class="w3-button w3-hover-green w3-black">Recommended Restaurants
+      <i class="fa fa-caret-down "></i>
+    </button>
+    <div class="w3-dropdown-content w3-bar-block">
+      <a href="/Biryani" class="w3-bar-item w3-button w3-hover-green">Known For Biryani</a>
+      <a href="/Ambience" class="w3-bar-item w3-button w3-hover-green">Known For Ambience</a>
+      <a href="/Service" class="w3-bar-item w3-button w3-hover-green">Known For Service</a>
+    </div>
+  </div> 
+  <a href="/coming_soon" class="w3-bar-item w3-button w3-hover-green">For Owners</a> 
+</div>
+
+<!-- Page Content -->
+<div class="w3-black">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰ Menu</button>
+
+<li id="search-bar" class="pull-right">
+<form action = /search method = post>
+  <input type="text" name="search" placeholder="Search..">
+</form>
+</li>
+</div>
+
+  <!-- Page Content -->
+  <div class="container" >
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4" style='background-image: url("/static/S.jpg")'>
+      <h1 class="display-3" ><font size="800" color="white"><b>Taste Bots</b></font></h1>
+      <p class="lead"><font size="4" color="white"><b>You can explore Casual Dining Restaurant here and find out what people think about it!!!!</b></font></p>
+      
+    </header>
+
+
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>404</h1>
+			</div>
+			<h2>Restaurant named {{restaurant_name}} Could Not Be Found</h2>
+			<p>Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable</p>
+			<a href="/">Go To Homepage</a>
+		</div>
+	</div>
+
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.width = "20%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+
+
